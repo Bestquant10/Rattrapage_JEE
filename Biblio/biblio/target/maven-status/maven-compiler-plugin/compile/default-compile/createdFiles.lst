@@ -1,0 +1,7 @@
+model\Collectivite.class
+model\Manifestation.class
+model\Oeuvre.class
+model\Expression.class
+model\Personne.class
+model\Item.class
+servlets\GetAllNotices.class
