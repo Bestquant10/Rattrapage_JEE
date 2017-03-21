@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JSpinner.DateEditor;
 
+import modele.Auteur;
 import modele.Edition;
 import modele.Ressource;
 import modele.TypeRessource;
@@ -40,40 +43,8 @@ public class Test extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		  /*EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "biblio" );
-	      
-	      EntityManager entitymanager = emfactory.createEntityManager( );
-	      EntityTransaction tx = entitymanager.getTransaction( );
-	      tx.begin();
-	      
-
-	      Auteur a = new Auteur();
-	      a.setNom("iliass");
-	      a.setPrenom("kahli");
-	      
-	      entitymanager.persist(a);
-	      tx.commit();
-
-	      entitymanager.close( );
-	      emfactory.close( );*/
-
-		
-		/*PrintWriter out = response.getWriter();
-		
-		
-		try {
-			InitialContext context = new InitialContext();
-			HelloWorldSessionBean hello = 
-					(HelloWorldSessionBean) context.lookup("java:global/biblioEJB/HelloWorldSessionBean!com.biblio.ejb.HelloWorldSessionBean");
-			out.print(hello.sayHello());
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
 		getServletContext().getRequestDispatcher("/WEB-INF/ajouterRessource.jsp").forward(request, response);
-		
 		
 	}
 
@@ -86,35 +57,40 @@ public class Test extends HttpServlet {
 		
 		String titreRessource = request.getParameter("titre");
 		Date dateEdition = null;
-		try {
+		try 
+		{
 			 dateEdition = new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("dateE"));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 		}
 		String url = request.getParameter("url");
 		String typeRessource = request.getParameter("typeR");
 		String nomEditeur = request.getParameter("nomE");
-		request.setAttribute("titre", titreRessource);
 		
 		Ressource ressource = new Ressource(titreRessource,dateEdition,url);
 		TypeRessource typeR = new TypeRessource(typeRessource);
 		Edition edition = new Edition(nomEditeur);
-		
+		int nbr = Integer.parseInt(request.getParameter("nbr"));
+		List<Auteur> auteurs = new ArrayList<Auteur>();
+		for(int i=0;i<nbr;i++)
+		{
+			Auteur auteur = new Auteur(request.getParameter("auteurs["+i+"].nom"),request.getParameter("auteurs["+i+"].prenom"));
+			auteurs.add(auteur);
+		}
 		ressource.setEdition(edition);
 		ressource.setTypeRessource(typeR);
-		
-		 EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "biblio" );
-	      
-	      EntityManager entitymanager = emfactory.createEntityManager( );
-	      EntityTransaction tx = entitymanager.getTransaction( );
-	      tx.begin();
-	      
-	      entitymanager.persist(ressource);
-	      tx.commit();
+		ressource.setAuteurs(auteurs);
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "biblio" );
+	    EntityManager entitymanager = emfactory.createEntityManager( );
+	    EntityTransaction tx = entitymanager.getTransaction( );
+	    tx.begin();  
+	    entitymanager.persist(ressource);
+	    tx.commit();
 
-	      entitymanager.close( );
-	      emfactory.close( );
+	    entitymanager.close( );
+	    emfactory.close( );
 
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		

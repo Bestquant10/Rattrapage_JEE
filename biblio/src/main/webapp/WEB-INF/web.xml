@@ -11,17 +11,29 @@
   	<servlet-class>servlets.Test</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>Acceuil</servlet-name>
-  	<display-name>Acceuil</display-name>
+  	<servlet-name>Accueil</servlet-name>
+  	<display-name>Accueil</display-name>
   	<description></description>
-  	<servlet-class>servlets.Acceuil</servlet-class>
+  	<servlet-class>servlets.Accueil</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ListeRessources</servlet-name>
+  	<display-name>ListeRessources</display-name>
+  	<description></description>
+  	<servlet-class>servlets.ListeRessources</servlet-class>
+  </servlet>
+ 
   <servlet-mapping>
   	<servlet-name>Test</servlet-name>
   	<url-pattern>/Test</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>Acceuil</servlet-name>
-  	<url-pattern>/Acceuil</url-pattern>
+  	<servlet-name>Accueil</servlet-name>
+  	<url-pattern>/Accueil</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListeRessources</servlet-name>
+  	<url-pattern>/ListeRessources</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

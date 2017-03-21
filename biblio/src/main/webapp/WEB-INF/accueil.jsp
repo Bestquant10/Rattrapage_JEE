@@ -7,13 +7,43 @@
 <title>Page d'accueil</title>
 </head>
 <body>
-	<div class="container">
-		<div class="col-md-8">
-			<input type="text" placeholder="recherchez par mot clé ...">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <div class="container">
+			<div class="input-group">
+	    		<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+	    		<input type="text" class="form-control">
+	  		</div>
 		</div>
-		<div class="col-md-2">
-			<span class="glyphicon glyphicon-search"></span>
+	
+		<div class="container">
+			<div class="input-group">
+	    		<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+	    		<input type="text" class="form-control">
+	  		</div>
 		</div>
-	</div>
+    
+	    <hr />
+	       <footer>
+	           <p></p>
+	        </footer>
+    </div>
 </body>
 </html>
+

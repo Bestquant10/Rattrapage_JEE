@@ -2,7 +2,6 @@
     pageEncoding="ISO-8859-1"%>
 <html>
 <body>
-<h2>Hello iliass!</h2>
-<%= request.getAttribute("titre") %>
+<h2>Bibliothèque</h2>
 </body>
 </html>

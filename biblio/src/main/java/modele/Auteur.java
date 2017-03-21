@@ -26,6 +26,14 @@ public class Auteur implements Serializable
 	@Column(name="auteur_prenom")
 	private String prenom;
 
+	public Auteur(){}
+	
+	public Auteur(String nom, String prenom) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+
 	public String getNom() {
 		return nom;
 	}
@@ -42,8 +50,8 @@ public class Auteur implements Serializable
 		this.prenom = prenom;
 	}
 	
-	/*@ManyToMany(mappedBy = "auteurs")
-	private List<Ressource> ressources;*/
+	@ManyToMany(mappedBy = "auteurs")
+	private List<Ressource> ressources;
 	
 	
 }

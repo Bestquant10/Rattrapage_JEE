@@ -42,13 +42,13 @@ public class Ressource implements Serializable
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Edition edition;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "auteur_ressource", joinColumns = {
 			@JoinColumn(name = "auteur_id") },
 			inverseJoinColumns = { @JoinColumn(name = "ressource_id")})
 	private List<Auteur> auteurs;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "categorie_ressource", joinColumns = {
 			@JoinColumn(name = "categorie_id") },
 			inverseJoinColumns = { @JoinColumn(name = "ressource_id")})
