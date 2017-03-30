@@ -10,7 +10,7 @@
 </head>
 <body>
 	<table>
-	   <h3>${ressources}</h3>
+	   
 		<c:forEach items="${ressources}" var="ressource">
 			<tr>
 				<td>${ressource.getTitre()}</td>
