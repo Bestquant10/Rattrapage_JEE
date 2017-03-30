@@ -43,9 +43,8 @@ public class ListeRessources extends HttpServlet {
 	      Query query = entitymanager.createQuery("SELECT r FROM Ressource r");
 	      
 	      PrintWriter out = response.getWriter();
-	      List<Ressource> ressources = query.getResultList();
-	      
-	     
+	      List ressources = query.getResultList();
+	      request.setAttribute("test","okok");
 	      request.setAttribute("ressources", ressources);
 	      entitymanager.close( );
 	      emfactory.close( );

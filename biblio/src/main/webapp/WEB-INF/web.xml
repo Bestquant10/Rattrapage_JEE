@@ -22,6 +22,24 @@
   	<description></description>
   	<servlet-class>servlets.ListeRessources</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AjouterTypeRessource</servlet-name>
+  	<display-name>AjouterTypeRessource</display-name>
+  	<description></description>
+  	<servlet-class>servlets.AjouterTypeRessource</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ModifierRessource</servlet-name>
+  	<display-name>ModifierRessource</display-name>
+  	<description></description>
+  	<servlet-class>servlets.ModifierRessource</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Inscription</servlet-name>
+  	<display-name>Inscription</display-name>
+  	<description></description>
+  	<servlet-class>servlets.Inscription</servlet-class>
+  </servlet>
  
   <servlet-mapping>
   	<servlet-name>Test</servlet-name>
@@ -34,6 +52,18 @@
   <servlet-mapping>
   	<servlet-name>ListeRessources</servlet-name>
   	<url-pattern>/ListeRessources</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AjouterTypeRessource</servlet-name>
+  	<url-pattern>/AjouterTypeRessource</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ModifierRessource</servlet-name>
+  	<url-pattern>/ModifierRessource</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Inscription</servlet-name>
+  	<url-pattern>/Inscription</url-pattern>
   </servlet-mapping>
   
 </web-app>
