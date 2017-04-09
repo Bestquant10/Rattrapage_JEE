@@ -18,8 +18,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
-import org.eclipse.persistence.internal.jpa.parsing.TemporalLiteralNode.TemporalType;
-
 @Entity
 @Table(name="t_ressource")
 public class Ressource implements Serializable
@@ -64,6 +62,11 @@ public class Ressource implements Serializable
 		this.titre = titre;
 		this.dateEdition = dateEdition;
 		this.url = url;
+	}
+
+	
+	public long getId() {
+		return id;
 	}
 
 	public String getTitre() {

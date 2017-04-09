@@ -3,6 +3,7 @@
 	<name>biblio</name>
 	<comment></comment>
 	<projects>
+		<project>WebServices</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

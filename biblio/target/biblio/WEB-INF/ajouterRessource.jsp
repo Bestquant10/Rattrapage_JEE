@@ -16,7 +16,6 @@
 <body>
 	<h2>Ajouter une ressource</h2>
 
-
 	<form action="/biblio/Test" method="post">
 
 		<div class="col-md-7">
@@ -68,7 +67,7 @@
 				</tbody>
 			</table>
 
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button type="submit" class="btn btn-default">Enregistrer</button>
 	</form>
 	<script type="text/javascript">
 		$(document).ready(function(){
