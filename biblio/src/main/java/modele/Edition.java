@@ -3,6 +3,7 @@ package modele;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 
 
 @Entity
+@RequestScoped
 @Table(name="t_edition")
 public class Edition implements Serializable
 {

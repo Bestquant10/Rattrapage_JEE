@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -19,6 +20,8 @@ import modele.Utilisateur;
  */
 public class Inscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@Inject
+	Utilisateur u;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -31,10 +34,11 @@ public class Inscription extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    //I keep only doPost() to register
+	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
-	}
+	}*/
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -46,7 +50,11 @@ public class Inscription extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
-		Utilisateur u = new Utilisateur(nom,prenom,email,password);
+		//Utilisateur u = new Utilisateur(nom,prenom,email,password);
+		u.setNom(nom);
+		u.setPrenom(prenom);
+		u.setEmail(email);
+		u.setPassword(password);
 		
 		
 		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "biblio" );

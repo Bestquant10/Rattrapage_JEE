@@ -2,13 +2,14 @@ package modele;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+@RequestScoped
 @Entity
 @Table(name="t_utilisateur")
 public class Utilisateur implements Serializable{

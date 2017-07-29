@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -18,6 +19,8 @@ import modele.TypeRessource;
  */
 public class AjouterTypeRessource extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@Inject
+    private  TypeRessource typeRessource;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -30,10 +33,12 @@ public class AjouterTypeRessource extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    // I keep only doPost() because I dont need doget() for this context
+    /*
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		getServletContext().getRequestDispatcher("/WEB-INF/ajouterTypeRessource.jsp").forward(request, response);
-	}
+	}*/
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -41,7 +46,7 @@ public class AjouterTypeRessource extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String nomTypeRessource = request.getParameter("typeRessource");
-		TypeRessource typeRessource = new TypeRessource(nomTypeRessource);
+		typeRessource.setNom(nomTypeRessource);
 		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "biblio" );
 	    EntityManager entitymanager = emfactory.createEntityManager( );
 	    EntityTransaction tx = entitymanager.getTransaction( );

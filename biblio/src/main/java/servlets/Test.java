@@ -1,5 +1,5 @@
 package servlets;
-
+//No need to keep TEST in this application >>>> delete it after
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;

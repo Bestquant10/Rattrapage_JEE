@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -26,7 +27,11 @@ import modele.TypeRessource;
  */
 public class ModifierRessource extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	@Inject
+	Edition edition;
+	
+	@Inject
+	TypeRessource typeR;   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,7 +43,8 @@ public class ModifierRessource extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // I keep only doPost to modify info of books
+	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Long id = Long.parseLong(request.getParameter("id"));
 		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "biblio" );
@@ -49,7 +55,7 @@ public class ModifierRessource extends HttpServlet {
 	    request.setAttribute("ressource", ressource);
 		
 	    getServletContext().getRequestDispatcher("/WEB-INF/modifierRessource.jsp").forward(request, response);
-	}
+	}*/
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -87,8 +93,10 @@ public class ModifierRessource extends HttpServlet {
 		ressource.setTitre(titreRessource);
 		ressource.setDateEdition(dateEdition);
 		ressource.setUrl(url);
-		Edition edition = new Edition(nomEditeur);
-		TypeRessource typeR = new TypeRessource(typeRessource);
+		//Edition edition = new Edition(nomEditeur);
+		edition.setNom(nomEditeur);
+		//TypeRessource typeR = new TypeRessource(typeRessource);
+	     typeR.setNom(typeRessource);
 		ressource.setEdition(edition);
 		ressource.setTypeRessource(typeR);
 		ressource.setAuteurs(auteurs);
