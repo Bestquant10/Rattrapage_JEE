@@ -6,32 +6,19 @@
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>biblio Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
   <dependencies>
     
- <!-- https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink -->
 <dependency>
-    <groupId>org.eclipse.persistence</groupId>
-    <artifactId>eclipselink</artifactId>
-    <version>2.5.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/javax.enterprise/cdi-api -->
-<dependency>
-    <groupId>javax.enterprise</groupId>
-    <artifactId>cdi-api</artifactId>
-    <version>2.0</version>
-    <scope>provided</scope>
-</dependency>
-
-
-<!-- https://mvnrepository.com/artifact/javax.ejb/ejb-api -->
-<dependency>
-    <groupId>javax.ejb</groupId>
-    <artifactId>ejb-api</artifactId>
-    <version>3.0</version>
-</dependency>
-
-
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
 
 <!-- https://mvnrepository.com/artifact/jstl/jstl -->
 <dependency>
@@ -40,22 +27,12 @@
     <version>1.2</version>
 </dependency>
 
-
-    
     <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 	<dependency>
 	    <groupId>org.postgresql</groupId>
 	    <artifactId>postgresql</artifactId>
 	    <version>9.4.1212</version>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
-	<dependency>
-	    <groupId>javax.servlet</groupId>
-	    <artifactId>javax.servlet-api</artifactId>
-	    <version>3.0.1</version>
-	</dependency>
-	   
+	</dependency>   
   </dependencies>
   <build>
     <finalName>biblio</finalName>
