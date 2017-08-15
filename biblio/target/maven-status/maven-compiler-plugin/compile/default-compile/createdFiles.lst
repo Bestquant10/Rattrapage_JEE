@@ -1,8 +1,0 @@
-modele\Edition.class
-modele\Categorie.class
-modele\Ressource.class
-modele\Utilisateur.class
-modele\TypeRessource.class
-servlets\Test.class
-modele\Auteur.class
-servlets\Authentification.class
