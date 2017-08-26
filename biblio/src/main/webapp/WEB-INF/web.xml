@@ -52,6 +52,12 @@
   	<description></description>
   	<servlet-class>servlets.SupprimerTypeRessource</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DeleteAccount</servlet-name>
+  	<display-name>DeleteAccount</display-name>
+  	<description></description>
+  	<servlet-class>servlets.DeleteAccount</servlet-class>
+  </servlet>
   
  
   <servlet-mapping>
@@ -83,11 +89,16 @@
   	<url-pattern>/Authentification</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+	<servlet-name>Rechercher</servlet-name>
   	<url-pattern>/Rechercher</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>SupprimerTypeRessource</servlet-name>
   	<url-pattern>/SupprimerTypeRessource</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteAccount</servlet-name>
+  	<url-pattern>/DeleteAccount</url-pattern>
   </servlet-mapping>
   
 </web-app>

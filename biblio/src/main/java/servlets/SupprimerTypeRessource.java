@@ -39,14 +39,16 @@ public class SupprimerTypeRessource extends HttpServlet {
 		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "biblio" );
 	    EntityManager entitymanager = emfactory.createEntityManager( );
 	    
-	    String idRessource = request.getParameter("typeRessource");
+	    // Find the Ressource with the id typeRessource
+	    Long idRessource = Long.parseLong(request.getParameter("idRessource"));
+	   
 	    typeRessource = entitymanager.find(TypeRessource.class, idRessource);
 	    
-	    EntityTransaction tx = entitymanager.getTransaction( );
+	    EntityTransaction tx = entitymanager.getTransaction();
 	    tx.begin();  
-	    
-	    entitymanager.remove(typeRessource);
-	    
+	    if (typeRessource != null) {
+	    	entitymanager.remove(typeRessource);
+	    }
 	    tx.commit();
 	    entitymanager.close( );
 	    emfactory.close( );
